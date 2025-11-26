@@ -1,0 +1,33 @@
+
+name: Unit Tests Runner
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  linux_test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Run a multi-line script
+        run: python unit_tests.py
+
+  windows_test:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout code
+        run: actions/checkout@v4
+
+      - name: Setup python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
