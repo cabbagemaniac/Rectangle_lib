@@ -10,7 +10,7 @@ class RectangleTests(unittest.TestCase):
 
     def test_area_negative_side(self):
         with self.assertRaises(ValueError):
-            area(5, 10)
+            area(-5, 10)
 
     def test_area_non_square(self):
         res = area(4, 9)
